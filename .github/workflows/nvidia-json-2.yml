@@ -7,12 +7,6 @@ jobs:
           set -ex
           #sed -i 's/^# //g'  /etc/apt/sources.list
           dis_codename="$(cat /etc/lsb-release  | grep DISTRIB_CODENAME | cut -d'=' -f2)"
-          cat <<EOF >/etc/apt/sources.list.d/ubuntu-"$dis_codename"-proposed.list
-          # Enable Ubuntu proposed archive
-          deb http://archive.ubuntu.com/ubuntu/ $dis_codename-proposed restricted main multiverse universe
-          deb-src http://archive.ubuntu.com/ubuntu/ $dis_codename-proposed restricted main multiverse universe
-          deb-src http://archive.ubuntu.com/ubuntu/ $dis_codename-updates restricted main multiverse universe
-          EOF
           echo "test"
         shell: bash
 
