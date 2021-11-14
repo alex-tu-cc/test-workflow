@@ -3,7 +3,6 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
       - run: |
           #!/bin/bash
           set -ex
@@ -20,7 +19,7 @@ jobs:
           apt-get --download-only source "$NVIDIA_DEB"
           tar xvf nvidia-graphics-drivers-*amd64.tar.gz
           $(find . -name "*.run") -x
-          cat $(find . -name "supported-gpus.json")
+        shell: bash
     - uses: actions/upload-artifact@v2
       with:
         path: /tmp/supported-gpus.json
