@@ -1,0 +1,11 @@
+on: [push]
+jobs:
+  get-nvidia-supported-gpus-json:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          set -ex
+          #sed -i 's/^# //g'  /etc/apt/sources.list
+          echo "test"
+        shell: bash
+
